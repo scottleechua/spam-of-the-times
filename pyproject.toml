@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "spamofthetimes"
+name = "spam-of-the-times"
 version = "0.1.0"
 description = ""
 authors = ["Scott Lee Chua <scottleechua@gmail.com>"]
@@ -11,8 +11,6 @@ pandas = "^2.2.0"
 dash-bootstrap-components = "^1.5.0"
 plotly = "^5.18.0"
 dash = "^2.15.0"
-
-[tool.poetry.group.dev.dependencies]
 jupyterlab = "^4.1.0"
 
 [build-system]
