@@ -12,6 +12,8 @@ dash-bootstrap-components = "^1.5.0"
 plotly = "^5.18.0"
 dash = "^2.15.0"
 jupyterlab = "^4.1.0"
+kaleido = "0.2.1"
+black = "^24.1.1"
 
 [build-system]
 requires = ["poetry-core"]
