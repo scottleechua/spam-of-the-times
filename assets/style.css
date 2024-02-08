@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Handjet&display=swap");
+
+h1 {
+    font-family: Handjet, sans-serif;
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+}
+
+.Select {
+    font-family: Montserrat, sans-serif;
+}
+
+/* hide table header */
+tr:first-child {
+    display: none
+}
