@@ -44,8 +44,11 @@ dropdown_choices = ["spam", "ads", "gov"]
 app.layout = html.Div(
     children=[
         html.H1(children="spam of the times"),
+        html.Br(),
+        html.P(children="A personal history of spam."),
         html.P(children="Click on the legend to toggle."),
         dcc.Graph(figure=fig, config=config),
+        html.Br(),
         dcc.Dropdown(
             id="filter_dropdown",
             options=dropdown_choices,
@@ -57,7 +60,7 @@ app.layout = html.Div(
         dash_table.DataTable(
             data=df.sort_values(by="date-received", ascending=False).to_dict(
                 "records"
-            ),  # reverse chronological
+            ),  # for table view, show latest messages first
             id="table-container",
             columns=[{"name": "text", "id": "text"}],
             page_action="none",
@@ -69,6 +72,8 @@ app.layout = html.Div(
                 {"if": {"row_index": "odd"}, "backgroundColor": "rgb(230,236,245)"}
             ],
         ),
+        html.Br(),
+        html.Footer(children="by Scott Lee Chua.")
     ]
 )
 
