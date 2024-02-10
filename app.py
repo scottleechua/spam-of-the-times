@@ -9,9 +9,16 @@ df = pd.read_csv("./data/sms.csv")
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
 
-fig = px.histogram(df, x="date-received", nbins=int(num_days / 2), color="type")
+total_texts = len(df)
 
-fig.add_vline(x="2023-07-25 12:00", line_width=2, line_dash="dash", line_color="black")
+def text_pct_generator(category):
+    count = len(df[df['type'] == category])
+    pct = count * 100 / total_texts
+    return pct
+
+fig = px.histogram(df, x="date-received", nbins=int(num_days / 2), color="type", category_orders={"type": ["spam", "ads", "gov", "notifs", "OTP"]})
+
+fig.add_vline(x="2023-07-30 12:00", line_width=2, line_dash="dash", line_color="black")
 
 fig.add_annotation(
     text="---: SIM card<br>registration<br>deadline",
@@ -29,10 +36,15 @@ fig.update_layout(
     legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
     legend_title=None,
     xaxis_title=None,
+    # xaxis_tickformat="%b '%y",
     xaxis_fixedrange=True,
     yaxis_fixedrange=True,
     font_family="Montserrat",
+    margin=dict(b=10)
 )
+
+fig.update_xaxes(tickprefix = "<br> ")
+fig.update_yaxes(ticksuffix = "   ")
 
 # on first page load, show only spam and the legend
 fig.update_traces(visible="legendonly")
@@ -44,12 +56,63 @@ dropdown_choices = ["spam", "ads", "gov"]
 app.layout = html.Div(
     children=[
         html.H1(children="spam of the times"),
-        html.Br(),
-        html.P(children="A personal history of spam."),
-        html.P(children="Click on the legend to toggle."),
+        html.Div(children=[
+            html.P(children=[
+                "download data: GitHub | Kaggle"
+            ])
+        ],
+        className="download-menu"),
+        html.P(children=[
+            html.Br(),
+            html.Div(children=[
+                "***",
+            ],
+            className="center-divider"),
+            html.Br(),
+            "On Sep 27 2022, the Philippine Senate passed the ",
+            html.A("SIM Registration Act", href='https://www.philstar.com/headlines/2022/09/28/2212803/senate-approves-sim-registration-bill', target="_blank"),
+            " in a move against SMS spam, scams, and fraud."
+        ]),
+        html.P(children=[
+            "Around that time, I was fascinated by Mikko Hypponen's ",
+            html.A("Malware Museum", href="https://archive.org/details/malwaremuseum", target="_blank"),
+            ", an online archive that treats computer viruses as cultural artifacts worthy of preservation and study. "
+        ]),
+        html.P(children=[
+            "Two days later, I stopped deleting spam texts. In fact, I stopped deleting texts at all.",
+        ]),
         dcc.Graph(figure=fig, config=config),
-        html.Br(),
-        dcc.Dropdown(
+        html.P(children=[
+            f"I split all {total_texts:,} texts into 5 categories:",
+        ]),
+        html.Ol(children=[
+            html.Li(children=[
+                html.Strong("spam"),
+                f" ({text_pct_generator('spam'):.0f}%): unsolicited messages from unknown numbers;",
+            ]),
+            html.Li(children=[
+                html.Strong("ads"),
+                f" ({text_pct_generator('ads'):.0f}%): marketing I can't unsubscribe from;",
+            ]),
+            html.Li(children=[
+                html.Strong("gov"),
+                f" ({text_pct_generator('gov'):.0f}%): PSAs and disaster warnings.",
+            ]),
+            html.Li(children=[
+                html.Strong("notifs"),
+                f" ({text_pct_generator('notifs'):.0f}%): messages I both expect and welcome; and",
+            ]),
+            html.Li(children=[
+                html.Strong("OTP"),
+                f" ({text_pct_generator('OTP'):.0f}%): one-time passwords.",
+            ]),
+        ]),
+        html.P(children=[
+            "For your reading pleasure, here's every message from the first 3 categories:"
+        ]),
+        html.Div(
+            children = [
+                dcc.Dropdown(
             id="filter_dropdown",
             options=dropdown_choices,
             placeholder="-select-",
@@ -71,9 +134,42 @@ app.layout = html.Div(
             style_data_conditional=[
                 {"if": {"row_index": "odd"}, "backgroundColor": "rgb(230,236,245)"}
             ],
+        )
+            ],
+            className = "dropdown-and-table"
         ),
+        html.P(children=[
+            "As the SIM registration deadline approached, I thought this little archival exercise would soon come to an end. ",
+        ]),
+        html.P(children=[
+            "But at 9:41am on Jul 30 2023, the day ",
+            html.A("54 million", href='https://www.sunstar.com.ph/cebu/local-news/54-million-unregistered-sim-cards-deactivated', target="_blank"),
+            " unregistered phone numbers were permanently deactivated, I got a text—",
+        ]),
+        html.Div(
+            children="B D O-Advisory:Your registered mobile number needs to be updated today. Please update here: https:// shorten.tv /loginnow to continue receiving One-Time Pin (OTP)",
+            className="sms-div"
+        ),
+        html.P(children=[
+            "and so we continue."
+        ]),
+        html.Div(children=[
+                "***",
+            ],
+            className="center-divider"),
+        html.P(children=[
+            "The full dataset is available under <LICENSE> on GitHub and Kaggle. Target refresh frequency is twice a year.",
+        ]),
+        html.P(children=[
+            "For questions, feedback, or to make money while watching YouTube, email scottleechua [at] gmail [dot] com."
+        ]),
         html.Br(),
-        html.Footer(children="by Scott Lee Chua.")
+        html.Footer(children=[
+            html.P(children=["by ",
+                             html.A("Scott Lee Chua", href='https://scottleechua.com', target="_blank"),
+                             " 🇵🇭"]),
+        ]
+        )
     ]
 )
 
@@ -85,4 +181,4 @@ def update_table(selection):
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)

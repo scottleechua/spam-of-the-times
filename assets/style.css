@@ -1,9 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Handjet&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Handjet&family=Source+Code+Pro&display=swap");
 
 h1 {
     font-family: Handjet, sans-serif;
     text-align: center;
     font-size: 3.5rem;
+    margin-bottom: 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 body {
@@ -11,11 +17,43 @@ body {
 }
 
 p {
-    margin: 1em 1rem;
+    margin: 1em 4.5rem;
+}
+
+ol {
+    margin: 1em 4.5rem;
+}
+
+.download-menu {
+    text-align: center;
+}
+
+.center-divider {
+    text-align: center;
+}
+
+.sms-div {
+    display: inline-block;
+    margin: 0.25em 4.5rem;
+    font-family: Source Code Pro, monospace;
+    background-color: rgb(245, 233, 230);
+    padding: 2rem;
+    border-radius: 20px;
 }
 
 .Select {
     font-family: Montserrat, sans-serif;
+}
+
+.dropdown-and-table {
+    display: inline-block;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+footer {
+    text-align: right;
+    font-size: 0.8rem;
 }
 
 /* hide table header */
