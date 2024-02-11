@@ -16,7 +16,7 @@ total_texts = len(df)
 
 
 def text_pct_generator(category):
-    count = len(df[df["type"] == category])
+    count = len(df[df["category"] == category])
     pct = count * 100 / total_texts
     return pct
 
@@ -25,8 +25,8 @@ fig = px.histogram(
     df,
     x="date-received",
     nbins=int(num_days / 2),
-    color="type",
-    category_orders={"type": ["spam", "ads", "gov", "notifs", "OTP"]},
+    color="category",
+    category_orders={"category": ["spam", "ads", "gov", "notifs", "OTP"]},
 )
 
 fig.add_vline(x="2023-07-30 12:00", line_width=2, line_dash="dash", line_color="black")
@@ -61,7 +61,7 @@ fig.update_yaxes(ticksuffix="   ")
 fig.update_traces(visible="legendonly")
 fig.data[0].visible = True
 
-config = {"displayModeBar": False}
+config = {"displayModeBar": False, "showTips": False}
 dropdown_choices = ["spam", "ads", "gov"]
 
 app.layout = html.Div(
@@ -245,7 +245,7 @@ app.layout = html.Div(
 
 @app.callback(Output("table-container", "data"), Input("filter_dropdown", "value"))
 def update_table(selection):
-    dff = df[df["type"] == selection]
+    dff = df[df["category"] == selection]
     return dff.to_dict("records")
 
 
