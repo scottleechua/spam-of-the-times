@@ -7,9 +7,7 @@ import os
 app = Dash()
 server = app.server
 
-df = pd.read_csv(
-    "https://github.com/scottleechua/data/blob/main/spam-and-other-messages/text-messages.csv?raw=true"
-)
+df = pd.read_csv("text-messages.csv")
 
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
