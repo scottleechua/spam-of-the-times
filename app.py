@@ -199,14 +199,14 @@ app.layout = html.Div(
                     href="https://www.sunstar.com.ph/cebu/local-news/54-million-unregistered-sim-cards-deactivated",
                     target="_blank",
                 ),
-                " unregistered phone numbers were permanently deactivated, I got a text—",
+                " unregistered phone numbers were permanently deactivated, I got a text saying:",
             ]
         ),
         html.Div(
             children="B D O-Advisory:Your registered mobile number needs to be updated today. Please update here: https:// shorten.tv /loginnow to continue receiving One-Time Pin (OTP)",
             className="sms-div",
         ),
-        html.P(children=["and so we continue."]),
+        html.P(children=["—and so we continue."]),
         html.Div(
             children=[
                 "***",
@@ -226,7 +226,7 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "For questions, feedback, or to make money while watching YouTube, email scottleechua [at] gmail [dot] com."
+                "For questions, feedback, or to get FREE signup instant cash!! — email scottleechua [at] gmail [dot] com."
             ]
         ),
         html.Br(),
