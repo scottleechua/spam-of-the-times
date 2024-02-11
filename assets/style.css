@@ -24,6 +24,16 @@ ol {
     margin: 1em 4.5rem;
 }
 
+/* hide table header */
+tr:first-child {
+    display: none
+}
+
+footer {
+    text-align: right;
+    font-size: 0.8rem;
+}
+
 .download-menu {
     text-align: center;
 }
@@ -49,14 +59,4 @@ ol {
     display: inline-block;
     margin-left: 80px;
     margin-right: 80px;
-}
-
-footer {
-    text-align: right;
-    font-size: 0.8rem;
-}
-
-/* hide table header */
-tr:first-child {
-    display: none
 }
