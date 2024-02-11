@@ -7,7 +7,7 @@ import os
 app = Dash()
 server = app.server
 
-df = pd.read_csv("./data/sms.csv")
+df = pd.read_csv("./data/text-messages.csv")
 
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
@@ -226,7 +226,7 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "For questions, feedback, or to get FREE signup instant cash!! — email scottleechua [at] gmail [dot] com."
+                "For questions, feedback, or to get ⚠️ FREE signup instant cash!! 💰 — email scottleechua [at] gmail [dot] com."
             ]
         ),
         html.Br(),
