@@ -215,7 +215,13 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "The full dataset is available under <LICENSE> on GitHub and Kaggle. Target refresh frequency is twice a year.",
+                "The full dataset of my text messages is available under the ",
+                html.A(
+                    "CC-BY-4.0 license",
+                    href="https://creativecommons.org/licenses/by/4.0/",
+                    target="_blank",
+                ),
+                " on GitHub and Kaggle. I aim to update it twice a year.",
             ]
         ),
         html.P(
@@ -228,7 +234,7 @@ app.layout = html.Div(
             children=[
                 html.P(
                     children=[
-                        "by ",
+                        "© 2024 ",
                         html.A(
                             "Scott Lee Chua",
                             href="https://scottleechua.com",
