@@ -4,6 +4,8 @@ import plotly.express as px
 import pandas as pd
 
 app = Dash()
+server = app.server
+
 df = pd.read_csv("./data/sms.csv")
 
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
