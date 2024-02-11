@@ -68,7 +68,19 @@ app.layout = html.Div(
     children=[
         html.H1(children="spam of the times"),
         html.Div(
-            children=[html.P(children=["download data: GitHub | Kaggle"])],
+            children=[
+                html.P(
+                    children=[
+                        "download data: ",
+                        html.A(
+                            "GitHub",
+                            href="https://github.com/scottleechua/data/tree/main/spam-and-other-messages",
+                            target="_blank",
+                        ),
+                        " | Kaggle",
+                    ]
+                )
+            ],
             className="download-menu",
         ),
         html.P(
@@ -221,7 +233,13 @@ app.layout = html.Div(
                     href="https://creativecommons.org/licenses/by/4.0/",
                     target="_blank",
                 ),
-                " on GitHub and Kaggle. I aim to update it twice a year.",
+                " on ",
+                html.A(
+                    "GitHub",
+                    href="https://github.com/scottleechua/data/tree/main/spam-and-other-messages",
+                    target="_blank",
+                ),
+                " and Kaggle. I aim to update it twice a year.",
             ]
         ),
         html.P(
