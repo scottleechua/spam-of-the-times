@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Handjet&family=Source+Code+Pro&display=swap");
 
+._dash-loading {
+    text-indent: -9999em;
+}
+
 h1 {
     font-family: Handjet, sans-serif;
     text-align: center;
