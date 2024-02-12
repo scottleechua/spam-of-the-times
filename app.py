@@ -73,7 +73,7 @@ app.layout = html.Div(
             children=[
                 html.P(
                     children=[
-                        "download data: ",
+                        "dataset: ",
                         html.A(
                             "GitHub",
                             href="https://github.com/scottleechua/data/tree/main/spam-and-other-messages",
@@ -125,7 +125,7 @@ app.layout = html.Div(
                 "Two days later, I stopped deleting spam texts. In fact, I stopped deleting texts at all.",
             ]
         ),
-        dcc.Graph(figure=fig, config=config),
+        dcc.Graph(figure=fig, config=config, style={"width": "100%"}),
         html.P(
             children=[
                 f"I split all {total_texts:,} texts into 5 categories:",
@@ -179,6 +179,7 @@ app.layout = html.Div(
                     value="spam",
                     searchable=False,
                     className="custom-dropdown",
+                    style={"width": "100%"},
                 ),
                 dash_table.DataTable(
                     data=df.sort_values(by="date-received", ascending=False).to_dict(
