@@ -9,6 +9,7 @@ app.title = "spam of the times"
 server = app.server
 
 df = pd.read_csv("text-messages.csv")
+# df = pd.read_csv("https://raw.githubusercontent.com/scottleechua/data/main/spam-and-marketing-sms/text-messages.csv")
 
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
@@ -78,7 +79,12 @@ app.layout = html.Div(
                             href="https://github.com/scottleechua/data/tree/main/spam-and-other-messages",
                             target="_blank",
                         ),
-                        " | Kaggle",
+                        " | ",
+                        html.A(
+                            "Kaggle",
+                            href="https://www.kaggle.com/datasets/scottleechua/ph-spam-marketing-sms-w-timestamps",
+                            target="_blank",
+                        ),
                     ]
                 )
             ],
@@ -234,7 +240,13 @@ app.layout = html.Div(
                     href="https://github.com/scottleechua/data/tree/main/spam-and-other-messages",
                     target="_blank",
                 ),
-                " and Kaggle under the ",
+                " and ",
+                html.A(
+                    "Kaggle",
+                    href="https://www.kaggle.com/datasets/scottleechua/ph-spam-marketing-sms-w-timestamps",
+                    target="_blank",
+                ),
+                " under the ",
                 html.A(
                     "CC-BY-4.0 license",
                     href="https://creativecommons.org/licenses/by/4.0/",
