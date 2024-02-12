@@ -2,7 +2,7 @@
 
 ![Screenshot of a chart entitled 'spam of the times' showing the count of spam texts received per day betwen September 2022 and February 2024](https://raw.githubusercontent.com/scottleechua/spam-of-the-times/main/assets/header_spamofthetimes.png)
 
-Interactive demo / dataviz for my [`spam-and-marketing-sms` dataset,](https://github.com/scottleechua/data/tree/main/spam-and-marketing-sms) which contains every text message I've received since September 2022.
+Interactive demo / dataviz for my [public dataset](https://github.com/scottleechua/data/tree/main/spam-and-marketing-sms) `spam-and-marketing-sms`, which contains every text message I've received since September 2022.
 
 ## Tech stack
 - Web app created with Plotly + Dash.
