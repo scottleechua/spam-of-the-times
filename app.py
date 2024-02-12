@@ -91,9 +91,9 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                html.Br(),
                 html.Div(
                     children=[
+                        html.Br(),
                         "***",
                     ],
                     className="center-divider",

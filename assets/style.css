@@ -11,10 +11,14 @@ h1 {
     margin-bottom: 0;
 }
 
-/* on mobile, make title smaller */
+/* on mobile, make title smaller, center divider shorter */
 @media (max-width: 480px) {
     h1 {
         font-size: 2.5rem;
+    }
+
+    .center-divider {
+        line-height: 0.5rem;
     }
 }
 
