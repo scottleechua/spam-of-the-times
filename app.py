@@ -56,7 +56,7 @@ fig.update_layout(
     margin=dict(b=10),
 )
 
-fig.update_xaxes(tickprefix="<br> ")
+fig.update_xaxes(tickprefix="<br>")
 fig.update_yaxes(ticksuffix="   ")
 
 # on first page load, show only spam and the legend
@@ -128,7 +128,7 @@ app.layout = html.Div(
         dcc.Graph(figure=fig, config=config, style={"width": "100%"}),
         html.P(
             children=[
-                f"I split all {total_texts:,} texts into 5 categories:",
+                f"I split all {total_texts:,} texts into five categories:",
             ]
         ),
         html.Ol(
@@ -167,7 +167,7 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "For your reading pleasure, here's every message from the first 3 categories:"
+                "For your reading pleasure, here's every message from the first three categories:"
             ]
         ),
         html.Div(
