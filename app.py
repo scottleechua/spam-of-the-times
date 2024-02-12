@@ -9,6 +9,7 @@ app.title = "spam of the times"
 server = app.server
 
 df = pd.read_csv("text-messages.csv")
+# df = pd.read_csv("https://github.com/scottleechua/data/blob/main/spam-and-other-messages/text-messages.csv?raw=true")
 
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
@@ -228,19 +229,19 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "The full dataset of my text messages is available under the ",
-                html.A(
-                    "CC-BY-4.0 license",
-                    href="https://creativecommons.org/licenses/by/4.0/",
-                    target="_blank",
-                ),
-                " on ",
+                "The full dataset of my text messages is available on ",
                 html.A(
                     "GitHub",
                     href="https://github.com/scottleechua/data/tree/main/spam-and-other-messages",
                     target="_blank",
                 ),
-                " and Kaggle. I aim to update it twice a year.",
+                " and Kaggle under the ",
+                html.A(
+                    "CC-BY-4.0 license",
+                    href="https://creativecommons.org/licenses/by/4.0/",
+                    target="_blank",
+                ),
+                ". I aim to update it twice a year.",
             ]
         ),
         html.P(
@@ -253,6 +254,13 @@ app.layout = html.Div(
             children=[
                 html.P(
                     children=[
+                        "favicon from ",
+                        html.A(
+                            "Flaticon",
+                            href="https://www.flaticon.com/free-icons/old-phone",
+                            target="_blank",
+                        ),
+                        html.Br(),
                         "© 2024 ",
                         html.A(
                             "Scott Lee Chua",
