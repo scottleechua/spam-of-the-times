@@ -49,11 +49,10 @@ fig.update_layout(
     legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
     legend_title=None,
     xaxis_title=None,
-    # xaxis_tickformat="%b '%y",
     xaxis_fixedrange=True,
     yaxis_fixedrange=True,
     font_family="Montserrat",
-    margin=dict(b=10),
+    margin=dict(l=30, r=40, b=10),
 )
 
 fig.update_xaxes(tickprefix="<br>")
@@ -125,7 +124,7 @@ app.layout = html.Div(
                 "Two days later, I stopped deleting spam texts. In fact, I stopped deleting texts at all.",
             ]
         ),
-        dcc.Graph(figure=fig, config=config, style={"width": "100%"}),
+        dcc.Graph(figure=fig, config=config, style={"width": "100%", "padding": "0"}),
         html.P(
             children=[
                 f"I split all {total_texts:,} texts into five categories:",

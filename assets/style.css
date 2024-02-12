@@ -33,6 +33,7 @@ tr:first-child {
     display: none
 }
 
+/* https://github.com/facultyai/dash-bootstrap-components/issues/372#issuecomment-627771580 */
 .dash-table-container .row {
     display: block;
     margin: 0;
