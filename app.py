@@ -5,6 +5,7 @@ import pandas as pd
 import os
 
 app = Dash()
+app.title = "spam of the times"
 server = app.server
 
 df = pd.read_csv("text-messages.csv")
