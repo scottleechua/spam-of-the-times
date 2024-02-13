@@ -4,7 +4,41 @@ import plotly.express as px
 import pandas as pd
 import os
 
-app = Dash()
+meta_tags = [
+    {
+        "name": "description",
+        "content": "a personal history of spam, marketing, and other text messages.",
+    },
+    {"name": "google", "content": "nositelinkssearchbox"},
+    {"property": "og:title", "content": "spam of the times"},
+    {
+        "property": "og:description",
+        "content": "a personal history of spam, marketing, and other text messages.",
+    },
+    {
+        "property": "og:image",
+        "content": "https://raw.githubusercontent.com/scottleechua/spam-of-the-times/main/assets/header_spamofthetimes.png",
+    },
+    {
+        "property": "og:image:alt",
+        "content": "screenshot of a chart entitled 'spam of the times' showing the count of spam texts received per day betwen September 2022 and February 2024",
+    },
+    {"property": "twitter:title", "content": "spam of the times"},
+    {
+        "property": "twitter:description",
+        "content": "a personal history of spam, marketing, and other text messages.",
+    },
+    {
+        "property": "twitter:image",
+        "content": "https://raw.githubusercontent.com/scottleechua/spam-of-the-times/main/assets/header_spamofthetimes.png",
+    },
+    {
+        "property": "twitter:image:alt",
+        "content": "screenshot of a chart entitled 'spam of the times' showing the count of spam texts received per day betwen September 2022 and February 2024",
+    },
+]
+
+app = Dash(meta_tags=meta_tags)
 app.title = "spam of the times"
 server = app.server
 
