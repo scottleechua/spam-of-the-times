@@ -41,6 +41,7 @@ meta_tags = [
     {"name": "robots", "content": "noarchive"},  # prevent Microsoft AI scraping
 ]
 
+
 app = Dash(meta_tags=meta_tags)
 app.title = "spam of the times"
 app.index_string = """
@@ -51,6 +52,7 @@ app.index_string = """
         <title>{%title%}</title>
         {%favicon%}
         {%css%}
+        <script data-goatcounter="https://spamott.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     </head>
     <body>
         {%app_entry%}
