@@ -37,6 +37,7 @@ meta_tags = [
         "property": "twitter:image:alt",
         "content": "screenshot of a chart entitled 'spam of the times' showing the count of spam texts received per day betwen September 2022 and February 2024",
     },
+    {"name": "robots", "content": "noarchive"},  # prevent Microsoft AI scraping
 ]
 
 app = Dash(meta_tags=meta_tags)
