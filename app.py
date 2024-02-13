@@ -1,6 +1,7 @@
 from dash import Dash, html, dcc, dash_table
 from dash.dependencies import Input, Output
 import plotly.express as px
+import flask
 import pandas as pd
 import os
 
@@ -327,6 +328,16 @@ app.layout = html.Div(
 def update_table(selection):
     dff = df[df["category"] == selection]
     return dff.to_dict("records")
+
+
+@app.server.route("/robots.txt")
+def serve_robots():
+    return flask.send_file("static/robots.txt", mimetype="text/plain")
+
+
+@app.server.route("/sitemap.xml")
+def serve_sitemap():
+    return flask.send_file("static/sitemap.xml", mimetype="application/xml")
 
 
 if __name__ == "__main__":
