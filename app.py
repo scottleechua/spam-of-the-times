@@ -43,6 +43,25 @@ meta_tags = [
 
 app = Dash(meta_tags=meta_tags)
 app.title = "spam of the times"
+app.index_string = """
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+    <head>
+        {%metas%}
+        <title>{%title%}</title>
+        {%favicon%}
+        {%css%}
+    </head>
+    <body>
+        {%app_entry%}
+        <footer>
+            {%config%}
+            {%scripts%}
+            {%renderer%}
+        </footer>
+    </body>
+</html>
+"""
 server = app.server
 
 df = pd.read_csv("text-messages.csv")
