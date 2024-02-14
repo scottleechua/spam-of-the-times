@@ -5,7 +5,6 @@
 Interactive demo / dataviz for my [public dataset](https://github.com/scottleechua/data/tree/main/spam-and-marketing-sms) `spam-and-marketing-sms`, which contains every text message I've received since September 2022.
 
 ## Tech stack
-- Text messages exported to `csv` with [iMazing](https://imazing.com/transfer-iphone-text-messages-to-computer)
 - Web app created with [Plotly](https://plotly.com/python/getting-started/) + [Dash](https://dash.plotly.com/).
 - Deployed on [Google Cloud Run](https://cloud.google.com/run/docs/overview/what-is-cloud-run) with [continuous deployment from this repo using Cloud Build](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build).
 - Cookieless analytics with [GoatCounter](https://github.com/arp242/goatcounter).
