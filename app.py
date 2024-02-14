@@ -66,10 +66,8 @@ app.index_string = """
 """
 server = app.server
 
-# df = pd.read_csv("text-messages.csv")
-df = pd.read_csv(
-    "https://raw.githubusercontent.com/scottleechua/data/main/spam-and-marketing-sms/text-messages.csv"
-)
+df = pd.read_csv("text-messages.csv")
+# df = pd.read_csv("https://raw.githubusercontent.com/scottleechua/data/main/spam-and-marketing-sms/text-messages.csv")
 
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
@@ -308,7 +306,8 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "This is usually the part where — having sliced and diced the data every which way — I present you with the results of some statistical tests and draw some conclusions. I haven't done that here. And I could say that I haven't had the time, that the day job is busy and the nights are just packed."
+                html.Br(),
+                "This is usually the part where — having sliced and diced the data every which way — I present you with the results of some statistical tests and draw some conclusions. I haven't done that here. And I could say that I haven't had the time, that the day job is busy and the nights are just packed.",
             ]
         ),
         html.P(
@@ -323,7 +322,7 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "Last year, as the SIM registration deadline approached, I thought this little archival exercise would soon come to an end. ",
+                "Last year, as the SIM registration deadline approached, I thought this little archival exercise would soon conclude itself. ",
                 "But at 09:41 on the final day, the day ",
                 html.A(
                     "54 million",
@@ -337,7 +336,7 @@ app.layout = html.Div(
             children="B D O-Advisory:Your registered mobile number needs to be updated today. Please update here: https:// shorten.tv /loginnow to continue receiving One-Time Pin (OTP)",
             className="sms-div",
         ),
-        html.P(children=["—and I stopped holding my breath."]),
+        html.P(children=["—and I let out a breath I didn't know I'd been holding."]),
         html.Div(
             children=[
                 "***",
@@ -416,4 +415,4 @@ def serve_sitemap():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8050)))
+    app.run(debug=False, host="0.0.0.0", port=int(os.environ.get("PORT", 8050)))
