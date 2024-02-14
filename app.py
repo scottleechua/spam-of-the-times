@@ -66,8 +66,10 @@ app.index_string = """
 """
 server = app.server
 
-df = pd.read_csv("text-messages.csv")
-# df = pd.read_csv("https://raw.githubusercontent.com/scottleechua/data/main/spam-and-marketing-sms/text-messages.csv")
+# df = pd.read_csv("text-messages.csv")
+df = pd.read_csv(
+    "https://raw.githubusercontent.com/scottleechua/data/main/spam-and-marketing-sms/text-messages.csv"
+)
 
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
@@ -133,7 +135,7 @@ app.layout = html.Div(
                         "dataset: ",
                         html.A(
                             "GitHub",
-                            href="https://github.com/scottleechua/data/tree/main/spam-and-other-messages",
+                            href="https://github.com/scottleechua/data/tree/main/spam-and-marketing-sms",
                             target="_blank",
                         ),
                         " | ",
@@ -168,6 +170,12 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
+                "Two days later, I stopped deleting spam texts. In fact, I stopped deleting texts at all.",
+            ]
+        ),
+        dcc.Graph(figure=fig, config=config, style={"width": "100%", "padding": "0"}),
+        html.P(
+            children=[
                 "Around that time, I was fascinated by Mikko Hypponen's ",
                 html.A(
                     "Malware Museum",
@@ -179,13 +187,41 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "Two days later, I stopped deleting spam texts. In fact, I stopped deleting texts at all.",
+                "We usually consider spam as digital detritus: something that clogs the servers, something to junk, something to purge. We feel like this should be a solved problem by now, and yet the only texts we ever get are spam."
             ]
         ),
-        dcc.Graph(figure=fig, config=config, style={"width": "100%", "padding": "0"}),
         html.P(
             children=[
-                f"I split all {total_texts:,} texts into five categories:",
+                "But in the way one can learn a lot about someone by going through their trash — what they had for lunch, what they bought, what they buy into — perhaps one can also learn about a society by the spam it tries to erase."
+            ]
+        ),
+        html.P(
+            children=[
+                "Or perhaps not! But we'll never know unless we study it, and we can't study it without preserving it."
+            ]
+        ),
+        html.Div(
+            children=[
+                html.Br(),
+                "***",
+            ],
+            className="center-divider",
+        ),
+        html.P(
+            children=[
+                f"By Feb 2024, I had archived {total_texts:,} texts in total. Instead of the usual ",
+                html.A(
+                    "'spam vs. ham'",
+                    href="https://cwiki.apache.org/confluence/display/spamassassin/Ham",
+                    target="_blank",
+                ),
+                " binary labels commonly seen in ",
+                html.A(
+                    "spam detection training datasets",
+                    href="https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset",
+                    target="_blank",
+                ),
+                ", I ended up sorting texts into five categories:",
             ]
         ),
         html.Ol(
@@ -224,7 +260,13 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "For your reading pleasure, here's every message from the first three categories:"
+                "The complete data dictionary and metadata are on ",
+                html.A(
+                    "GitHub",
+                    href="https://github.com/scottleechua/data/tree/main/spam-and-marketing-sms",
+                    target="_blank",
+                ),
+                ", but for your reading pleasure, here's every message from the first three categories:",
             ]
         ),
         html.Div(
@@ -259,18 +301,30 @@ app.layout = html.Div(
                             "backgroundColor": "rgb(230,236,245)",
                         }
                     ],
+                    cell_selectable=False,
                 ),
             ],
             className="dropdown-and-table",
         ),
         html.P(
             children=[
-                "As the SIM registration deadline approached, I thought this little archival exercise would soon come to an end. ",
+                "This is usually the part where — having sliced and diced the data every which way — I present you with the results of some statistical tests and draw some conclusions. I haven't done that here. And I could say that I haven't had the time, that the day job is busy and the nights are just packed."
             ]
         ),
         html.P(
             children=[
-                "But at 9:41am on Jul 30 2023, the day ",
+                "But the truth is that I just don't want to. The charts you see on this page are more than enough for me. As the data collector ",
+                html.B("and"),
+                " the data subject, it's nice to take a step back and look at the shape of the thing, the outline of a life traced by the spam that sticks to it the way that barnacles accrue beneath a ship. It feels like being at my own funeral, like hearing someone else summarize my life. ",
+                html.Em(
+                    "He requested so many one-time passwords last May. Isn't that so him?"
+                ),
+            ]
+        ),
+        html.P(
+            children=[
+                "Last year, as the SIM registration deadline approached, I thought this little archival exercise would soon come to an end. ",
+                "But at 09:41 on the final day, the day ",
                 html.A(
                     "54 million",
                     href="https://www.sunstar.com.ph/cebu/local-news/54-million-unregistered-sim-cards-deactivated",
@@ -283,7 +337,7 @@ app.layout = html.Div(
             children="B D O-Advisory:Your registered mobile number needs to be updated today. Please update here: https:// shorten.tv /loginnow to continue receiving One-Time Pin (OTP)",
             className="sms-div",
         ),
-        html.P(children=["—and so we continue."]),
+        html.P(children=["—and I stopped holding my breath."]),
         html.Div(
             children=[
                 "***",
@@ -292,10 +346,10 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                "The full dataset of my text messages is available on ",
+                "The full dataset of my text messages is freely available on ",
                 html.A(
                     "GitHub",
-                    href="https://github.com/scottleechua/data/tree/main/spam-and-other-messages",
+                    href="https://github.com/scottleechua/data/tree/main/spam-and-marketing-sms",
                     target="_blank",
                 ),
                 " and ",
@@ -310,7 +364,7 @@ app.layout = html.Div(
                     href="https://creativecommons.org/licenses/by/4.0/",
                     target="_blank",
                 ),
-                ". I aim to update it twice a year.",
+                ".",
             ]
         ),
         html.P(
@@ -362,4 +416,4 @@ def serve_sitemap():
 
 
 if __name__ == "__main__":
-    app.run(debug=False, host="0.0.0.0", port=int(os.environ.get("PORT", 8050)))
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8050)))
