@@ -1,8 +1,7 @@
 FROM python:3.11-alpine
 ENV PYTHONUNBUFFERED 1
 ENV VIRTUAL_ENV=/usr/local
-ADD --chmod=655 https://astral.sh/uv/install.sh /install.sh
-RUN /install.sh && rm /install.sh
+ADD pip install --no-cache-dir "uv~=0.1"
 WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN /root/.cargo/bin/uv pip install --no-cache -r requirements.txt
