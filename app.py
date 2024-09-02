@@ -71,6 +71,7 @@ df = pd.read_csv("text-messages.csv")
 
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
+latest_month = df["date-received"].max().strftime("%b %Y")
 total_texts = len(df)
 
 
@@ -219,7 +220,7 @@ app.layout = html.Div(
         ),
         html.P(
             children=[
-                f"By Feb 2024, I had archived {total_texts:,} texts in total. Instead of the usual ",
+                f"By {latest_month}, I had archived {total_texts:,} texts in total. Instead of the usual ",
                 html.A(
                     "'spam vs. ham'",
                     href="https://cwiki.apache.org/confluence/display/spamassassin/Ham",
