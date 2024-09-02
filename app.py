@@ -71,7 +71,6 @@ df = pd.read_csv("text-messages.csv")
 
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
-
 total_texts = len(df)
 
 
@@ -90,16 +89,29 @@ fig = px.histogram(
 )
 
 fig.add_vline(x="2023-07-30 12:00", line_width=2, line_dash="dash", line_color="black")
+fig.add_vline(x="2024-07-22 12:00", line_width=2, line_dash="dash", line_color="red")
 
 fig.add_annotation(
-    text="---: SIM card<br>registration<br>deadline",
-    align="right",
+    text="---: SIM card<br>     registration<br>     deadline",
+    align="left",
     showarrow=False,
     xref="paper",
     yref="paper",
-    x=0.995,
+    x=0.01,
     y=0.995,
-    bordercolor="black",
+    font=dict(color="black"),
+    borderwidth=0,
+)
+
+fig.add_annotation(
+    text="---: POGOs<br>     banned<br>     in the PH",
+    align="left",
+    showarrow=False,
+    xref="paper",
+    yref="paper",
+    x=0.01,
+    y=0.845,
+    font=dict(color="red"),
     borderwidth=0,
 )
 
