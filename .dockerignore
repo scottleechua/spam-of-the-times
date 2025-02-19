@@ -5,6 +5,7 @@ __pycache__/
 .venv/
 Dockerfile
 .dockerignore
+.python-version
 README.md
 LICENSE
 .vscode
