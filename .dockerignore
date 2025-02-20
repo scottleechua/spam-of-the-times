@@ -14,3 +14,4 @@ Makefile
 .pre-commit-config.yaml
 assets/header_spamofthetimes.png
 text-messages.csv
+gcp-serviceaccount-permissions.txt
