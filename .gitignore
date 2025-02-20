@@ -1,5 +1,7 @@
-data/
+text-messages.csv
 .DS_Store
-venv
+**/.venv/
+**/__pycache__/
 *.pyc
 .env
+.poetry/

@@ -3,11 +3,14 @@
 .gitignore
 __pycache__/
 .venv/
+.poetry/
 Dockerfile
 .dockerignore
 .python-version
 README.md
 LICENSE
+Makefile
 .vscode
 .pre-commit-config.yaml
 assets/header_spamofthetimes.png
+text-messages.csv
