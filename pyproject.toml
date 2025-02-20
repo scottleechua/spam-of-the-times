@@ -19,6 +19,9 @@ plotly = "^5.18.0"
 dash = "^2.15.0"
 gunicorn = "^22.0.0"
 
+[tool.poetry.group.dev]
+optional = true
+
 [tool.poetry.group.dev.dependencies]
 jupyterlab = "^4.2.5"
 pre-commit = "^3.6.1"

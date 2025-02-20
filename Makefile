@@ -3,5 +3,5 @@ dev:
 	poetry run python app.py
 
 setup:
-	poetry install
+	poetry install --with dev
 	poetry run pre-commit install
