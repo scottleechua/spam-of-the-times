@@ -11,7 +11,7 @@ Interactive demo / dataviz for my [public dataset](https://github.com/scottleech
 
 ## Local development
 Requires [Make](https://www.gnu.org/software/make/) and [Poetry](https://python-poetry.org/) 2.1 or higher. Run:
-- `make setup` to install dependencies and pre-commit hooks
+- `make init` to install dependencies and pre-commit hooks
 - `make dev` to run the web app locally
 
 ## Acknowledgements
