@@ -4,6 +4,11 @@
 
 Interactive demo / dataviz for my [public dataset](https://github.com/scottleechua/data/tree/main/spam-and-marketing-sms) `spam-and-marketing-sms`, which contains every text message I've received since September 2022.
 
+## Development
+Requires [Make](https://www.gnu.org/software/make/) and [Poetry](https://python-poetry.org/) 2.1 or higher.
+- `make setup` to install dependencies and pre-commit hooks
+- `make dev` to run the web app locally
+
 ## Tech stack
 - Web app created with [Plotly](https://plotly.com/python/getting-started/) + [Dash](https://dash.plotly.com/).
 - Deployed on [Google Cloud Run](https://cloud.google.com/run/docs/overview/what-is-cloud-run) with [continuous deployment from this repo using Cloud Build](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build).
