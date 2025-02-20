@@ -12,6 +12,7 @@ LICENSE
 Makefile
 .vscode
 .pre-commit-config.yaml
+.yamllint
 assets/header_spamofthetimes.png
 text-messages.csv
 gcp-serviceaccount-permissions.txt
