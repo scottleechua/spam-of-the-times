@@ -5,3 +5,4 @@
 .env
 .poetry/
 text-messages.csv
+.python-version
