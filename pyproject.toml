@@ -27,7 +27,6 @@ jupyterlab = "^4.2.5"
 pre-commit = "^3.6.1"
 
 [tool.poetry.requires-plugins]
-poetry-dotenv-plugin = ">=0.2.0"
 poetry-plugin-export = ">=1.8"
 poetry-plugin-sort = ">=0.3.0"
 
