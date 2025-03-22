@@ -15,7 +15,7 @@ package-mode = false
 [tool.poetry.dependencies]
 dash = "^2.15.0"
 dash-bootstrap-components = "^1.5.0"
-gunicorn = "^22.0.0"
+gunicorn = "^23.0.0"
 pandas = "^2.2.0"
 plotly = "^5.18.0"
 
