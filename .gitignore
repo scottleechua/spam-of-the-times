@@ -3,6 +3,6 @@
 **/__pycache__/
 *.pyc
 .env
-.poetry/
+.ruff_cache/
 text-messages.csv
 .python-version

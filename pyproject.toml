@@ -6,30 +6,4 @@ authors = [
     {name = "Scott Lee Chua", email = "scottleechua@gmail.com"}
 ]
 readme = "README.md"
-requires-python = "^3.11"
-dynamic = ["dependencies"]
-
-[tool.poetry]
-package-mode = false
-
-[tool.poetry.dependencies]
-dash = "^2.15.0"
-dash-bootstrap-components = "^1.5.0"
-gunicorn = "^23.0.0"
-pandas = "^2.2.0"
-plotly = "^5.18.0"
-
-[tool.poetry.group.dev]
-optional = true
-
-[tool.poetry.group.dev.dependencies]
-jupyterlab = "^4.2.5"
-pre-commit = "^3.6.1"
-
-[tool.poetry.requires-plugins]
-poetry-plugin-export = ">=1.8"
-poetry-plugin-sort = ">=0.3.0"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.11"
