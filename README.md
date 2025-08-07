@@ -10,7 +10,7 @@ Interactive demo / dataviz for my [public dataset](https://github.com/scottleech
 - Cookieless analytics with [GoatCounter](https://github.com/arp242/goatcounter).
 
 ## Local development
-Requires [Make](https://www.gnu.org/software/make/) and [Poetry](https://python-poetry.org/) 2.1 or higher. Run:
+Requires [Make](https://www.gnu.org/software/make/) and [uv](https://docs.astral.sh/uv/) for dependency management. Run:
 - `make init` to install dependencies and pre-commit hooks
 - `make dev` to run the web app locally
 
