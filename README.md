@@ -13,6 +13,7 @@ Interactive demo / dataviz for my [public dataset](https://github.com/scottleech
 Requires [Make](https://www.gnu.org/software/make/) and [uv](https://docs.astral.sh/uv/) for dependency management. Run:
 - `make init` to install dependencies and pre-commit hooks
 - `make dev` to run the web app locally
+- `make update` to upgrade dependencies
 
 ## Acknowledgements
 Thanks to Xiu Ting Foong for the website name!
