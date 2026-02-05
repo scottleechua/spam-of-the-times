@@ -21,7 +21,7 @@ release:
 	fi && \
 	uv version --bump minor && \
 	VERSION=$$(uv run python -c "import re; print(re.search(r'version = \"([^\"]+)\"', open('pyproject.toml').read()).group(1))") && \
-	git add pyproject.toml && \
+	git add pyproject.toml uv.lock && \
 	git commit -m "Bump version to $$VERSION" && \
 	git tag -a "v$$VERSION" -m "Version $$VERSION" && \
 	git push && git push --tags
