@@ -4,6 +4,7 @@ import plotly.express as px
 import flask
 import pandas as pd
 import os
+import datetime
 
 meta_tags = [
     {
@@ -396,7 +397,7 @@ app.layout = html.Div(
                             target="_blank",
                         ),
                         html.Br(),
-                        "© 2024 ",
+                        f"© 2024–{datetime.datetime.now().year} ",
                         html.A(
                             "Scott Lee Chua",
                             href="https://scottleechua.com",
