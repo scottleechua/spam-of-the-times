@@ -1,0 +1,17 @@
+name: New Year rebuild
+
+on:
+  schedule:
+    - cron: "37 19 31 12 *"  # Jan 1 03:37 GMT+8
+
+jobs:
+  empty-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Push empty commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore: new year rebuild"
+          git push
