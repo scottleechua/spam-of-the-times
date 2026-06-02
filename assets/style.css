@@ -44,6 +44,11 @@ tr:first-child {
     display: none
 }
 
+.dash-spreadsheet-container {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
 /* https://github.com/facultyai/dash-bootstrap-components/issues/372#issuecomment-627771580 */
 .dash-table-container .row {
     display: block;
