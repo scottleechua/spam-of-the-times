@@ -77,7 +77,7 @@ footer {
 }
 
 .dropdown-and-table {
-    display: inline-block;
+    display: block;
     margin-left: 2rem;
     margin-right: 2rem;
 }
