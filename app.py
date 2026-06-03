@@ -70,6 +70,9 @@ server = app.server
 df = pd.read_csv("text-messages.csv")
 # df = pd.read_csv("https://raw.githubusercontent.com/scottleechua/data/main/spam-and-marketing-sms/text-messages.csv")
 
+df["text"] = df["text"].str.lstrip()
+df = df[df["text"] != "<BLANK>"]
+
 df["date-received"] = pd.to_datetime(df["date-received"]).dt.date
 num_days = (df["date-received"].max() - df["date-received"].min()).days + 1
 latest_month = df["date-received"].max().strftime("%b %Y")
@@ -418,7 +421,9 @@ app.layout = html.Div(
 
 @app.callback(Output("table-container", "data"), Input("filter_dropdown", "value"))
 def update_table(selection):
-    dff = df[df["category"] == selection]
+    dff = df[df["category"] == selection].sort_values(
+        by="date-received", ascending=False
+    )
     return dff.to_dict("records")
 
 
