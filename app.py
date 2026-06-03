@@ -299,8 +299,12 @@ app.layout = html.Div(
                     id="table-container",
                     columns=[{"name": "text", "id": "text"}],
                     page_action="none",
-                    style_table={"height": "300px", "overflowY": "auto"},
-                    style_cell={"textAlign": "left"},
+                    style_table={
+                        "height": "300px",
+                        "overflowY": "auto",
+                        "overflowX": "hidden",
+                    },
+                    style_cell={"textAlign": "left", "maxWidth": 0},
                     style_header={"display": "none"},
                     style_data={
                         "whiteSpace": "normal",
