@@ -67,7 +67,7 @@ app.index_string = """
 """
 server = app.server
 
-df = pd.read_csv("text-messages.csv")
+df = pd.read_csv("text-messages.csv", on_bad_lines="skip")
 # df = pd.read_csv("https://raw.githubusercontent.com/scottleechua/data/main/spam-and-marketing-sms/text-messages.csv")
 
 df["text"] = df["text"].str.lstrip()
