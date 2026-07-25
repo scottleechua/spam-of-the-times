@@ -17,6 +17,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "jupyterlab>=4.5.9",
+    "jupyterlab>=4.5.10",
     "pre-commit>=3.6.1",
 ]
