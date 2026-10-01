@@ -5,7 +5,7 @@ dev:
 	uv run python app.py
 
 init:
-	uv pip install -e ".[dev]"
+	uv sync --extra dev
 	uv run pre-commit install
 
 update:
