@@ -14,7 +14,6 @@ update:
 	uv export --format requirements-txt --extra dev -o requirements-dev.txt
 
 release:
-	./update-robots.zsh && \
 	if ! git diff --quiet; then \
 		git add . && \
 		git commit -m "Update files before version bump"; \
