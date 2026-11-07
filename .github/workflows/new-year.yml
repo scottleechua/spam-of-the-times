@@ -4,9 +4,14 @@ on:
   schedule:
     - cron: "37 19 31 12 *"  # Jan 1 03:37 GMT+8
 
+permissions:
+  contents: read
+
 jobs:
   empty-commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
       - name: Push empty commit
