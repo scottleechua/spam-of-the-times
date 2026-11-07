@@ -1,0 +1,30 @@
+name: Re-export requirements on Dependabot PRs
+
+on:
+  pull_request:
+    paths:
+      - uv.lock
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+      - name: Export requirements files
+        run: |
+          uv export --format requirements-txt -o requirements.txt
+          uv export --format requirements-txt --extra dev -o requirements-dev.txt
+      - name: Commit if changed
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "Re-export requirements files"
+          git push
