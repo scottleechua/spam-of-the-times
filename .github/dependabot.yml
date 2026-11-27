@@ -5,7 +5,7 @@ updates:
     directory: /
     schedule:
       interval: cron
-      cronjob: "23 4 * * 4"
+      cronjob: "23 4 1 * *"
       timezone: Asia/Singapore
     cooldown:
       default-days: 7
@@ -17,7 +17,7 @@ updates:
     directory: /
     schedule:
       interval: cron
-      cronjob: "23 4 * * 4"
+      cronjob: "23 4 1 * *"
       timezone: Asia/Singapore
     cooldown:
       default-days: 7
@@ -33,7 +33,7 @@ updates:
     directory: /
     schedule:
       interval: cron
-      cronjob: "23 4 * * 4"
+      cronjob: "23 4 1 * *"
       timezone: Asia/Singapore
     cooldown:
       default-days: 7
@@ -45,7 +45,7 @@ updates:
     directory: /
     schedule:
       interval: cron
-      cronjob: "23 4 * * 4"
+      cronjob: "23 4 1 * *"
       timezone: Asia/Singapore
     cooldown:
       default-days: 7
