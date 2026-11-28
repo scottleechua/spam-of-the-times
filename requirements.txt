@@ -72,9 +72,9 @@ comm==0.2.3 \
     --hash=sha256:2dc8048c10962d55d7ad693be1e7045d891b7ce8d999c97963a5e3e99c055971 \
     --hash=sha256:c615d91d75f7f04f095b30d1c1711babd43bdc6419c1be9886a85f2f4e489417
     # via dash
-dash==4.5.1 \
-    --hash=sha256:e0709a6784b69ee38b9c832c35d9013b4035c382034da1cce869bd626740f5c2 \
-    --hash=sha256:e19024bff132371331c38aceccfcae0a85028660b658db816f28bcece5a47afb
+dash==4.5.2 \
+    --hash=sha256:45315b145e51026ca6fdcf7026f0d118369ad73177b41430b1d7ebc01a283e2b \
+    --hash=sha256:750be00b0e3c372288d7d1cd2fc5fb9bd9f0be2e7cbaedb6af1e6ff8ab2dc65c
     # via
     #   dash-bootstrap-components
     #   spam-of-the-times
